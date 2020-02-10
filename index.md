@@ -1,3 +1,5 @@
+
+<script>
 <!doctype html>
 <html>
 <head>
@@ -70,3 +72,4 @@ body {
     </div>
 	</div>
 </html>
+	</script>
