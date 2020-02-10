@@ -30,7 +30,7 @@ body {
 </nav>
 <div class="container">
   <div class="jumbotron">
- <h2 style="text-align:center"> Hello, I'm Elizabeth. These are things I've authored.<img style="margin:auto;" class="img-responsive" src="logo-med.gif" alt="osg logo"> </h2>
+ <h2 style="text-align:center"> Hello, I'm Elizabeth. These are things I've authored.</h2>
  </div>
  <div class="row">
     <div class="col-md-4" style="background-color:#E6E6FA;">
