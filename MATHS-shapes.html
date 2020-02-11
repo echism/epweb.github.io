@@ -632,9 +632,9 @@ d3.select("#tiny12")
   .transition()
     .duration(8000)
     .on("start", function repeat() {
-      d3.active(this).attrTween("d", pathTween(r1, 4))
+      d3.active(this).attrTween("d", pathTween(r1, 50))
         .transition()
-          .attrTween("d", pathTween(r2, 4))
+          .attrTween("d", pathTween(r2, 50))
 		.transition()
            .on("start", repeat);
     });
