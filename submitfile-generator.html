@@ -1,0 +1,173 @@
+
+<html>
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<style>body{background-color: #3478bd;}</style>
+<style>form{background-color: #ffffff; margin: 2%;padding:2%}</style>
+<title>submit file generator</title>
+
+<script>
+
+function createSubFile(){
+
+     var uni= document.getElementById("tuniverse").value;
+        var url = document.getElementById("resURL").value;
+	var exe = document.getElementById("executable").value;
+
+	var args = document.getElementById("arguments").value;
+
+	var logs = document.getElementById("logfile").value;
+
+	var outs = document.getElementById("outfile").value;
+
+	var errs = document.getElementById("errfile").value;
+
+	var ipts = document.getElementById("iptfiles").value;
+
+	var opts = document.getElementById("optfiles").value;
+
+	var mem = document.getElementById("maxmem").value;
+
+	var cpu = document.getElementById("maxcpu").value;
+
+	var disk = document.getElementById("maxdisk").value;
+
+	var runs = document.getElementById("runNum").value;
+
+    document.getElementById("subUniverse").innerHTML = 'universe = ' + uni;
+
+	document.getElementById("subExecutable").innerHTML = 'executable = ' + exe;
+
+	document.getElementById("subLogs").innerHTML = 'log = ' + logs;
+
+	document.getElementById("subOuts").innerHTML = 'output = ' + outs;
+
+	document.getElementById("subErrs").innerHTML = 'error = ' + errs;
+
+	document.getElementById("subRuns").innerHTML = 'Queue ' + runs;
+
+if (url.length>=1){
+
+ document.getElementById("subResource").innerHTML = 'grid_resource = ' + url;
+
+};
+
+if (args.length>=1){
+
+ document.getElementById("subArguments").innerHTML = 'arguments = ' + args;
+
+};
+
+if (ipts.length>=1){
+
+ document.getElementById("subIpts").innerHTML = 'transfer_input_files = ' + ipts;
+
+};
+
+if (opts.length>=1){
+
+ document.getElementById("subOpts").innerHTML = 'transfer_output_files = ' + opts;
+
+};
+
+if (mem.length>=1){
+
+ document.getElementById("subMaxmem").innerHTML = 'request_memory = ' + mem;
+
+};
+
+if (cpu.length>=1){
+
+ document.getElementById("subMaxcpu").innerHTML = 'request_cpus = ' + cpu;
+
+};
+
+if (disk.length>=1){
+
+ document.getElementById("subMaxdisk").innerHTML = 'request_disk = ' + disk;
+
+};
+var form = document.getElementsByClassName("a");
+for (var i in form) {
+  if (form.hasOwnProperty(i)) {
+    form[i].style.display = 'none';
+	console.log(i);
+  };
+};
+}
+</script>
+
+</head>
+
+<body>
+<p class="subfile" id="subResource"></p>
+<p class="subfile" id="subExecutable"></p>
+<p class="subfile" id="subArguments"></p>
+<p class="subfile" id="subLogs"></p>
+<p class="subfile" id="subOuts"></p>
+<p class="subfile" id="subErrs"></p>
+<p class="subfile" id="subIpts"></p>
+<p class="subfile" id="subOpts"></p>
+<p class="subfile" id="subMaxmem"></p>
+<p class="subfile" id="subMaxdisk"></p>
+<p class="subfile" id="subMaxcpu"></p>
+<p class="subfile" id="subRuns"></p>
+<p class="subfile" id="subUniverse"></p>
+<form>
+<h2>submit file generator</h2>
+<p class="a">Choose a universe: vanilla, grid, standard or parallel
+<input class="a" type="text" id="tuniverse"  maxlength="8"></p>
+<p class="a" id="enterURL">if you want to use one specific grid resource, enter the url here:
+<input class="a" type="text" id="resURL"maxlength="50"></p>
+<p class="a">What's the name of your executable file? (include file extension) 
+<input type="text" id="executable"   maxlength="50"></p>
+<p class="a">If you're going to pass any arguments to your executable, enter arguments:
+
+<input class="a" type="text" id="arguments" maxlength="50"></p>
+
+<p  class="a">Choose a name (and directory, if desired) for your logfile or logfiles:
+
+<input  class="a" type="text" id="logfile" maxlength="50"></p>
+
+<p  class="a">Choose a name (and directory, if desired) for your output file or files:
+
+<input  class="a" type="text" id="outfile" maxlength="50"></p>
+
+<p  class="a">Choose a name (and directory if desired) for your error file or error files:
+
+<input  class="a" type="text" id="errfile"  maxlength="50"></p>
+
+<p  class="a">Specify any other input files, if applicable:
+
+<input  class="a" type="text" id="iptfiles"  maxlength="50"></p>
+
+<p  class="a">Specify any other output files, if applicable:
+
+<input  class="a" type="text" id="optfiles"  maxlength="50">  </p>
+
+<p  class="a">Maximum anticipated memory usage (specify KB, MB, GB or TB):
+
+<input  class="a" type="text" id="maxmem"  maxlength="7"></p>
+
+<p  class="a">Maximum anticipated disk usage (specify KB, MB, GB or TB):
+
+<input  class="a" type="text" id="maxdisk"  maxlength="7"></p>
+
+<p = class="a">Number of CPUs you're requesting (only necessary for parallel jobs):
+
+<input  class="a" type="text" id="maxcpu" maxlength="2"></p>
+
+<p class="a">How many times would you like to run this job, if more than one?
+
+<input  class="a" type="text" id="runNum" maxlength="5"></p>
+
+<button onclick="createSubFile()">Create this submit file</button>
+</form>
+</body>
+
+</html>
+
